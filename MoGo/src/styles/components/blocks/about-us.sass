@@ -1,0 +1,108 @@
+#about-us
+   .items
+      @include grid(3, 30px, init)
+      .item
+         transform: translate(0)
+         &:before
+            @include pseudo
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            background: linear-gradient( rgba(243,129,129,0.9),rgba(252,227,138,0.9))
+            opacity: 0
+            transition: 0.2s
+         .inner
+            position: absolute
+            top: 0
+            left: 0
+            @include flex(center, center, column, 5px)
+            width: 100%
+            height: 100%
+            font-size: 1.5rem
+            font-weight: 700
+            text-transform: uppercase
+            text-align: center
+            opacity: 0
+            span
+               font-size: 0.75em
+         
+         &:after
+            @include pseudo
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            background: $green
+            transition: 0.2s
+            z-index: -1
+         
+         &:last-child
+            &:before
+               background: linear-gradient( rgba(243,129,129,1),rgba(252,227,138,1))
+            &:before, .inner
+               opacity: 1
+            &:nth-child(4n)
+               display: none
+         
+         img
+            width: 100%
+            height: 100%
+            object-fit: cover
+         
+         &:hover
+            transform: translate(-10px,-10px)
+            &:before
+               opacity: 1 
+            &:after
+               transform: translate(10px, 10px) 
+            .inner
+               opacity: 1   
+      
+      @media (max-width: 1024px)
+         gap: $padding-container
+         padding-bottom: $padding-container
+         .item 
+            &:before 
+               background: linear-gradient(90deg, rgb(0 0 0 / 25%), transparent)
+               opacity: 1
+            
+            .inner 
+               font-size: 2rem
+               opacity: 1
+               * 
+                  color: #fff         
+            
+            &:hover 
+               transform: translate(0)
+               &:after
+                  transform: translate(0) 
+            
+            &:last-child 
+               &:before
+                  opacity: 0      
+      
+      @media (max-width: 768px) 
+         grid-template-columns: repeat(2, 1fr)
+         .item 
+            &:last-child 
+               &:not(:nth-child(odd))
+                  display: block 
+               &:not(:nth-child(even))
+                  display: none 
+
+      @media (max-width: 500px) 
+         @include grid (1, 10px)
+         @include padding(0, horizontal)
+         padding-bottom: 10px
+         .item 
+            &:last-child:not(:nth-child(odd)),
+            &:last-child:not(:nth-child(even)) 
+               display: none
+            
+         
+      
+   
+
+
+

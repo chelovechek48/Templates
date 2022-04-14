@@ -1,0 +1,53 @@
+@mixin arrow($side)
+   @if $side == up
+      &:before
+         transform: translate(calc(-50% - 4.5px),-50%) rotate(-45deg)
+      &:after
+         transform: translate(calc(-50% + 4.5px),-50%) rotate(45deg)
+   @else if $side == down
+      &:before
+         transform: translate(calc(-50% - 4.5px),-50%) rotate(45deg)
+      &:after
+         transform: translate(calc(-50% + 4.5px),-50%) rotate(-45deg)
+   @else if $side == left
+      &:before
+         transform: translate(-50%, calc(-50% - 4.5px)) rotate(-45deg)
+      &:after
+         transform: translate(-50%, calc(-50% + 4.5px)) rotate(45deg)
+   @else if $side == right
+      &:before
+         transform: translate(-50%, calc(-50% - 4.5px)) rotate(45deg)
+      &:after
+         transform: translate(-50%, calc(-50% + 4.5px)) rotate(-45deg)
+
+[class*="arrow-"]
+   position: relative
+   left: 10px
+   width: 60px
+   height: 100%
+   margin-left: auto
+
+   &:before,
+   &:after
+      @include pseudo
+      background: $UI
+      top: 50%
+      left: 50%
+      width: 25%
+      height: 3px
+      transition: 0.2s
+
+.arrow
+   &-up
+      @include arrow(up)
+   &-down
+      @include arrow(down)
+   &-left
+      @include arrow(left)
+   &-right
+      @include arrow(right)
+
+.swiper-button-prev,
+.swiper-button-next
+   &[class*="arrow-"]
+      color: transparent

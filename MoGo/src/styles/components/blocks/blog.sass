@@ -1,0 +1,56 @@
+#blog
+   .swiper
+      padding-top: 35px
+      @include padding(5px, horizontal)
+      max-width: $max-width - 30
+      box-sizing: content-box
+      .swiper-slide
+         padding: 0 10px
+         width: 100%
+         img
+            width: 100%
+            height: 100%
+            object-fit: cover
+            &:hover
+               transform: scale(102%)
+               
+         .inner
+            position: relative
+            margin-top: 20px
+            display: flex
+            flex-direction: column
+            gap: 15px
+            > .date
+               position: absolute
+               left: -10px
+               bottom: calc(100% + 30px)
+               padding: 12px 15px
+               background: #95e1d3
+               text-align: center
+               h3
+                  color: #fff
+                  
+            .title
+               line-height: 1.2
+               
+            .feedback
+               display: flex
+               [class*="icon-"]
+                  color: #95e1d3
+               span
+                  color: #95e1d3
+                  font-style: italic
+                  line-height: 1.1
+                  margin-left: 5px
+                  margin-right: 15px
+                  
+      @media (max-width: 1200px)
+         @include padding(25px, horizontal)
+         .swiper-slide
+            padding: 0
+            .inner > .date
+               left: 10px
+               box-shadow: 0 0 0 3px #fff inset
+               
+      @media (max-width: 768px)
+         @include padding(15px, horizontal)

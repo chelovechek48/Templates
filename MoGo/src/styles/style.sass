@@ -1,0 +1,195 @@
+@mixin padding($padding, $direction) 
+   @if $direction == vertical 
+      padding-top: $padding
+      padding-bottom: $padding
+   @else if $direction == horizontal 
+      padding-left: $padding
+      padding-right: $padding
+
+@mixin flex($align-items: stretch, $justify-content: flex-start, $flex-direction: row, $gap: 0) 
+   display: flex
+   align-items: $align-items
+   justify-content: $justify-content
+   flex-direction: $flex-direction
+   gap: $gap
+
+@mixin grid($col, $gap, $init: false) 
+   @if $init == init
+      display: grid 
+   grid-template-columns: repeat($col, 1fr)
+   gap: $gap
+
+
+@mixin pseudo($content: '', $position: absolute) 
+   content: $content
+   position: $position
+
+
+@mixin scroll-horizontal($height, $margin) 
+   @media (hover: hover) 
+      &::-webkit-scrollbar
+         height: $height + $margin 
+      &::-webkit-scrollbar-track 
+         box-shadow: inset 0 0 0 100px rgb(149 225 211 / 50%)
+         border-bottom: solid $margin transparent
+      
+      &::-webkit-scrollbar-thumb 
+         box-shadow: inset 0 0 0 100px #95e1d3
+         border-bottom: solid $margin transparent
+      
+   
+
+
+
+html
+   scroll-behavior: smooth
+
+
+body.fixed
+   overflow: hidden 
+
+* 
+   margin: 0
+   padding: 0
+   box-sizing: border-box
+   border: none
+   outline: none
+   text-decoration: none
+   list-style: none
+   font-family: 'Montserrat'
+   color: #fff
+   transition: all 0.2s
+
+
+:root 
+   --padding-container: 25px
+   --paddingTop-section: 100px
+   --paddingItems-section: 100px
+   @media (max-width: 1024px) 
+      --paddingTop-section: 74px
+      --paddingItems-section: 50px
+   
+   @media (max-width: 768px) 
+      --padding-container: 15px
+      --paddingItems-section: 30px
+   
+   
+$red: #f38181
+$green: #95e1d3
+$yellow: #fce38a
+$bg-gray: #f8f8f8
+
+$font-title: #333
+$font-primary: #999
+
+$UI: #e5e5e5
+
+
+$padding-container: var(--padding-container)
+$paddingTop-section: var(--paddingTop-section)
+$paddingItems-section: var(--paddingItems-section)
+$max-width: 1200px
+
+.container
+   max-width: $max-width
+   height: 100%
+   margin: 0 auto
+   @include padding($padding-container, horizontal)
+
+.swiper.container
+   @include padding($padding-container, horizontal)
+
+
+section 
+   padding-top: $paddingTop-section
+   .title-block
+      @include flex(center, center, column, 30px)
+      text-align: center
+   .items 
+      @include padding($paddingItems-section, vertical)
+
+
+img 
+   display: block
+
+
+li
+   line-height: 1.2
+
+span
+   display: block
+
+hr 
+   width: 60px
+   min-height: 3px
+   background-color: $red
+   &.hr-long
+      width: 100%
+      min-height: 1px
+      background-color: $green
+
+
+button
+   cursor: pointer
+   pointer-events: all
+
+
+p
+   color: $font-primary
+   font-size: 1rem
+   line-height: 1.6
+
+b, i
+   color: inherit
+
+
+h1, h2, h3, h4, h5, h6
+   line-height: 1
+   text-transform: uppercase
+   font-weight: 700
+
+h2, h3
+   span
+      font-family: 'Kaushan Script'
+      font-weight: 400
+      line-height: 1
+      text-transform: none
+
+h2
+   font-size: 160px
+   > span
+      font-size: 0.5em
+
+h3
+   color: $font-title
+   font-size: 2rem
+   > span
+      color: $font-title
+      font-size: 0.75em
+
+h4
+   font-size: 1.5rem
+
+h5
+   color: $font-title
+   font-size: 1rem
+   font-weight: 500
+
+h6
+   font-size: 72px
+   letter-spacing: 2px
+   > span
+      font-size: 1rem
+      font-weight: 500
+      color: #fff
+      text-transform: uppercase
+      letter-spacing: 0px
+
+
+@media (max-width: 1024px)
+   h2
+      font-size: min(15vw, 20vh)
+   
+
+
+@import 'import'

@@ -1,0 +1,87 @@
+.quote
+   background: #F8F8F8
+   .swiper
+      &.container 
+         max-width: $max-width - 50
+      .swiper-slide
+         display: flex
+         align-items: center
+         gap: 50px
+         padding: 70px 100px
+         [class*="icon-"]
+            font-size: 48px
+            padding: 40px
+            border: 3px solid #95E1D4
+            color: #95E1D4
+
+         img
+            width: 128px
+            aspect-ratio: 1
+            border-radius: 50%
+  
+         .text
+            p
+               font-style: italic
+               &:before,
+               &:after
+                  content: '"'
+
+            footer
+               display: flex
+               align-items: center
+               gap: 10px
+               padding-top: 10px
+      
+      .swiper-navigation
+         position: absolute
+         top: 0
+         left: 0
+         width: 100%
+         height: 100%
+         display: flex
+         justify-content: space-between
+         .swiper-button-prev,
+         .swiper-button-next
+            position: relative
+            top: 0
+            left: 0
+            width: 60px
+            height: 100%
+            margin: 0
+            
+      @media (max-width: 1024px)
+         .swiper-slide
+            padding: 50px 60px
+            gap: 35px
+        
+         .swiper-navigation
+            padding: 0
+        
+     
+      @media (max-width: 500px)
+         .swiper-slide
+            flex-direction: column
+            gap: 15px
+            padding: 35px
+
+            [class*="icon-"]
+               display: none
+
+            img
+               width: 192px
+               
+            .text
+               display: flex
+               flex-direction: column-reverse
+               gap: 15px
+               footer
+                  padding: 0
+                  justify-content: center
+                  hr
+                     display: none
+                  h3
+                     font-size: 2.5rem
+        
+         .swiper-navigation
+            width: calc(100% + 20px)
+            left: -10px

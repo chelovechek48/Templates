@@ -1,0 +1,58 @@
+.footer
+
+   .footer__top
+      display: flex
+      @media (max-width: 1024px)
+         flex-direction: column
+      align-items: center
+      gap: 40px
+      @include padding(50px, vertical)
+
+      h3
+         white-space: nowrap
+
+      .footer__follow
+         display: flex
+         align-items: center
+         gap: 15px
+         a
+            color: $green
+            font-size: 2rem
+            &:hover
+               transform: scale(1.2)
+
+      .footer__subscribe
+         display: flex
+         width: 100%
+         @media (max-width: 1024px)
+            max-width: 500px
+
+         @media (max-width: 425px)
+            flex-direction: column
+         input
+            color: #000
+            font-size: 1rem
+            font-weight: 500
+            width: 100%
+            background-color: #fff
+            padding: 12px
+            box-shadow: 0 0 0 2px $green inset
+            &::placeholder
+               color: $green
+               font-style: italic
+
+         button
+            color: #fff
+            font-size: 1rem
+            font-weight: 700
+            background-color: $green
+            text-transform: uppercase
+            padding: 12px 30px
+
+   
+   .footer__bottom
+      display: flex
+      align-items: center
+      justify-content: center
+      height: 60px
+      background-color: $bg-gray

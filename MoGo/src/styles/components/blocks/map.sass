@@ -1,0 +1,21 @@
+.map
+   background: url('images/map.jpg') 0/cover no-repeat
+   overflow: hidden
+   .inner
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      gap: 20px
+      height: 200px
+      h4
+         color: #ED8181
+         @media (max-width: 768px)
+            font-size: 2rem
+      
+      [class*="icon-"]
+         transform-origin: bottom
+      
+      &:hover
+         [class*="icon-"]
+            transform: scale(1.5)

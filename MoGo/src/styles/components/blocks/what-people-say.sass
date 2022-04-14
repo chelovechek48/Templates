@@ -1,0 +1,39 @@
+#what-people-say
+   background: url('images/what-people-say/what-people-say.jpg') center / cover fixed no-repeat
+   .items
+      width: 100%
+      @include grid(2, 80px, init)
+      padding-top: 80px
+      .item
+         display: flex
+         gap: 30px
+         width: 100%
+         img
+            width: 110px
+            height: 110px
+            border-radius: 50%
+         .text
+            hr
+               margin: 15px 0
+
+      @media (max-width: 1024px)
+         @include grid(1, 50px)
+         .item
+            .text
+               .title
+                  display: flex
+                  align-items: center
+                  gap: 10px
+                  margin-bottom: 10px
+               hr
+                  display: none
+
+      @media (max-width: 500px)
+         .item
+            flex-direction: column
+            align-items: center
+            .text
+               text-align: center
+               .title
+                  flex-direction: column
+                  gap: 0.25rem
